@@ -1,0 +1,213 @@
+/* --- Base --- */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Components --- */
+
+.card__img-wrapper {
+    max-height: 240px;
+}
+
+.card__img-wrapper {
+    pointer-events: none;
+}
+
+.card__img-wrapper > * {
+    pointer-events: all;
+}
+
+
+.card--game {
+
+}
+
+/* @media screen and (min-width: 375px) and (max-width: 767px) {
+    * {
+        background-color: red !important;
+    }
+} */
+
+@media screen and (max-width: 767px) {
+    .card--game {
+        display: grid !important;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: 
+            "img-wrapper body"
+            "img-wrapper footer"
+        ;
+    }
+
+    .card--game > .card__img-wrapper {
+        grid-area: img-wrapper;
+    }
+
+    .card--game > .card-body {
+        grid-area: body;
+    }
+
+    .card--game > .card-footer {
+        grid-area: footer;
+        font-size: 16px;
+    }
+
+    .card--game > * > .card-img {
+        border-radius: 0px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .card--game {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .card--game .card-footer-row {
+        --bs-gutter-y: 12px;
+    }
+
+    .card--game .card-footer-row > .col {
+        font-size: 12px;
+    }
+
+    .card--game .card-body__title {
+        font-size: 16px;
+    }
+
+    .card--game .card-body__text {
+        font-size: 14px;
+    }
+}
+
+.the-game {
+    
+}
+
+.the-game__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .the-game__img {
+        max-width: 220px;
+    }
+}
+
+.the-game__prop-name {
+    font-weight: 500;
+}
+
+.the-game__prop-value {
+    
+}
+
+.the-game__td--city {
+    width: 200px;
+}
+
+.the-game__td--market {
+    width: 200px;
+}
+
+.the-game__td--link {
+    width: 220px;
+}
+
+@media (min-width: 768px) {
+    .the-game__prop-value {
+        padding-left: 12px;
+    }
+}
+
+.the-game__badge {
+    max-width: 100%;
+}
+
+.the-game__platform-img {
+    width: 64px;
+    height: 64px;
+}
+
+.the-game__table {
+    min-width: 600px;
+}
+
+.the-game__table > :not(caption) > * > *:first-child {
+    padding-left: 0;
+}
+
+.the-game__table > :not(caption) > * > *:last-child {
+    padding-left: 0;
+}
+
+.the-game__table-price {
+    white-space: pre-wrap; /* Chrome */
+    word-wrap: break-word;
+}
+
+
+.bi-theme-icons {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentcolor;
+}
+
+/* --- Bootstrap utils (existed if specific flag is true) --- */
+
+.mt-n1 {
+    margin-top: -0.25rem !important;
+}
+
+.me-b1 {
+    margin-bottom: -0.25rem !important;
+}
+
+.ms-n1 {
+    margin-left: -0.25rem !important;
+}
+
+.me-n1 {
+    margin-right: -0.25rem !important;
+}
+
+.mx-n1 {
+    margin-right: -0.25rem !important;
+    margin-left: -0.25rem !important;
+}
+
+.my-n1 {
+    margin-top: -0.25rem !important;
+    margin-bottom: -0.25rem !important;
+}
+
+.mt-n2 {
+    margin-top: -0.5rem !important;
+}
+
+.me-b2 {
+    margin-bottom: -0.5rem !important;
+}
+
+.ms-n2 {
+    margin-left: -0.5rem !important;
+}
+
+.me-n2 {
+    margin-right: -0.5rem !important;
+}
+
+.mx-n2 {
+    margin-right: -0.5rem !important;
+    margin-left: -0.5rem !important;
+}
+
+.my-n2 {
+    margin-top: -0.5rem !important;
+    margin-bottom: -0.5rem !important;
+}

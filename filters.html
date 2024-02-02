@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- Reset styles -->
+	<link rel="preload" href="./lib/destyle/index.css" as="style" />
+	<link rel="stylesheet" href="./lib/destyle/index.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./lib/bootstrap-icons/font/bootstrap-icons.min.css">
+	<!-- Scripts -->
+	<link rel="preload" href="./js/themeToggler.js" as="script" />
+	<script src="./js/themeToggler.js" async></script>
+	<script src="./lib/bootstrap/js/bootstrap.bundle.js" defer></script>
+	<script src="./lib/js-cookie/js.cookie.min.js" defer></script>
+	<script src="./js/index.js" defer type="module"></script>
+</head>
+<body>
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+		<symbol id="sun-fill" viewBox="0 0 16 16">
+			<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+		</symbol>
+		<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+			<path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/>
+			<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+		</symbol>
+		<symbol id="circle-half" viewBox="0 0 16 16">
+			<path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/>
+		</symbol>
+	</svg>
+
+	<div class="visually-hidden-focusable p-2">
+		<ul class="nav">
+			<li class="nav-item">
+				<a class="nav-link text-link focus-ring" href="#main">
+					К контенту
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-link focus-ring" href="#footer">
+					К подвалу
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<header id="header">
+		<nav class="navbar py-2 bg-body-tertiary" aria-label="Навигация по сайту">
+			<div class="container d-flex flex-wrap align-items-center">
+				<ul class="nav me-auto ms-n2 d-none d-lg-flex">
+					<li class="nav-item">
+						<a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">
+							Главная
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link link-body-emphasis px-2">
+							Поиск
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link link-body-emphasis px-2">
+							Блог
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link link-body-emphasis px-2">
+							О сайте
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link link-body-emphasis px-2">
+							Контакты
+						</a>
+					</li>
+				</ul>
+				<ul class="nav">
+					<li class="nav-item dropdown">
+						<button
+							id="bd-theme"
+							class="btn btn-link link-secondary nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+							type="button"
+							aria-expanded="false"
+							data-bs-toggle="dropdown"
+							data-bs-display="static"
+							aria-label="Переключить тему (тёмная)"
+						>
+							<svg class="bi-theme-icons my-1 theme-icon-active">
+								<use href="#moon-stars-fill"></use>
+							</svg>
+							<span class="d-none ms-2" id="bd-theme-text">Переключить тему</span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end" aria-label="Переключить тему">
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+									<svg class="bi-theme-icons me-2 opacity-50 theme-icon"><use href="#sun-fill"></use></svg>
+									Светлая
+									<svg class="bi-theme-icons ms-auto d-none"><use href="#check2"></use></svg>
+								</button>
+								</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
+									<svg class="bi-theme-icons me-2 opacity-50 theme-icon"><use href="#moon-stars-fill"></use></svg>
+									Тёмная
+									<svg class="bi-theme-icons ms-auto d-none"><use href="#check2"></use></svg>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+									<svg class="bi-theme-icons me-2 opacity-50 theme-icon"><use href="#circle-half"></use></svg>
+									Авто
+									<svg class="bi-theme-icons ms-auto d-none"><use href="#check2"></use></svg>
+								</button>
+							</li>
+						</ul>
+					</li>
+					<!-- <li class="nav-item">
+						<a
+							class="nav-link link-body-emphasis px-2"
+							href="#"
+						>
+							Вход
+						</a>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link link-body-emphasis px-2"
+							href="#"
+						>
+							Регистрация
+						</a>
+					</li> -->
+				</ul>
+				<div class="d-lg-none ms-auto">
+					<button 
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="offcanvas"
+						data-bs-target="#offcanvasNav"
+						aria-controls="offcanvasNav"
+						aria-label="Показать навигацию"
+					>
+						<span class="navbar-toggler-icon text-body"></span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<div
+			class="offcanvas offcanvas-end"
+			tabindex="-1"
+			id="offcanvasNav"
+		>
+			<div class="offcanvas-header">
+				<button 
+					type="button"
+					class="btn-close ms-auto"
+					data-bs-dismiss="offcanvas"
+					aria-label="Close"
+				></button>
+			</div>
+
+			<nav class="navbar">
+				<div class="offcanvas-body">
+					<ul class="navbar-nav fs-5 text-end">
+						<li class="nav-item">
+							<a class="nav-link active" href="#" >
+								Главная
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#" >
+								Поиск
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" >
+								Блог
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" >
+								О сайте
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" >
+								Контакты
+							</a>
+						</li>
+					  </ul>
+				</div>
+			</nav>
+		</div>
+
+		<div class="py-3 border-top border-bottom">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-auto">
+						<a
+							href="./"
+							class="d-flex align-items-center text-decoration-none focus-ring focus-ring-light"
+						>
+							<span class="fs-4 d-none d-md-block">
+								Board Game Market
+							</span>
+							<span class="fs-3 d-md-none">
+								BGM
+							</span>
+						</a>
+					</div>
+					<div class="col-auto col-md-5 col-lg-6">
+						<form class="d-none d-md-flex align-items-center">
+							<div class="input-group">
+								<input
+									class="form-control"
+									type="search"
+									placeholder="Найти игру"
+									aria-labelledby="search-button"
+								>
+								<button
+									id="search-button"
+									class="btn btn-primary"
+									type="submit"
+									title="Найти игру"
+								>
+									<span class="bi bi-search" aria-hidden="true"></span>
+								</button>
+							</div>
+						</form>
+						<div id="search-form-modal" class="modal" tabindex="-1" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button 
+											type="button"
+											class="btn-close"
+											data-bs-dismiss="modal"
+											aria-label="Закрыть"
+										>
+										</button>
+									</div>
+									<form class="modal-body">
+										<input
+											class="form-control form-control-lg"
+											type="search"
+											placeholder="Название игры"
+											aria-labelledby="search-button"
+										>
+										<button
+											class="w-100 mt-3 btn btn-lg btn-outline-primary"
+											type="submit"
+										>
+											Найти
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-auto">
+						<div class="d-flex align-items-center">
+							<button
+								id="search-button"
+								class="d-md-none ms-3 order-1 btn btn-primary"
+								type="button"
+								title="Открыть поиск"
+								data-bs-toggle="modal"
+								data-bs-target="#search-form-modal"
+							>
+								<span class="bi bi-search" aria-hidden="true"></span>
+							</button>
+
+							<label
+								class="fz-4 me-2 text-light"
+								for="currency-select"
+								title="Выбрать валюту"
+							>
+								<span class="bi bi-globe" aria-hidden="true"></span>
+							</label>
+							<select
+								id="currency-select"
+								class="form-select"
+								aria-labelledby="currency-selector-label"
+							>
+								<option value="RU">RU</option>
+								<option value="USD">USD</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main id="main" class="my-5">
+		<div class="container">
+			<div class="card mb-5 p-2 shadow-sm">
+				<form class="row g-2 g-lg-3">
+					<div class="col-12 col-md-4 col-lg-3">
+						<label for="game-title-select" class="form-label">
+							Название игры
+						</label>
+						<input
+							id="game-title-select"
+							class="form-control form-control-sm"
+							type="text"
+						>
+					</div>
+					<div class="col-12 col-md-4 col-lg-3">
+						<label for="town" class="form-label">
+							Город
+						</label>
+						<input
+							id="town"
+							class="form-control form-control-sm"
+							type="text"
+						>
+					</div>
+					<div class="col-12 col-md-4 col-lg-3">
+						<label for="formGroupExampleInput" class="form-label">
+							Состояние
+						</label>
+						<select class="form-select form-select-sm" aria-label="Default select example">
+							<option value="new">Новая</option>
+							<option value="used">Б/У</option>
+						</select>
+					</div>
+					<div class="col-12 col-md-4 col-lg-3">
+						<label for="from" class="form-label">
+							Цена
+						</label>
+
+						<!-- <div class="input-group">
+							<input
+								id="from"
+								class="form-control form-control-sm"
+								type="text"
+								pattern="[0-9]*"
+								inputmode="numeric"
+								placeholder="от"
+							>
+							<input
+								id="from"
+								class="form-control form-control-sm"
+								type="text"
+								pattern="[0-9]*"
+								inputmode="numeric"
+								placeholder="до"
+							>
+							<select
+								class="form-select form-select-sm"
+								style="max-width: 90px;"
+								aria-labelledby="currency-selector-label"
+							>
+								<option value="RU">RU</option>
+								<option value="USD">USD</option>
+							</select>
+						</div> -->
+						<div class="row gx-1">
+							<div class="col">
+								<input
+									id="from"
+									class="form-control form-control-sm"
+									type="text"
+									pattern="[0-9]*"
+									inputmode="numeric"
+									placeholder="от"
+								>
+							</div>
+								<div class="col">
+									<input
+									id="from"
+									class="form-control form-control-sm"
+									type="text"
+									pattern="[0-9]*"
+									inputmode="numeric"
+									placeholder="до"
+								>
+							</div>
+							<div class="col">
+								<select
+									class="form-select form-select-sm"
+									aria-labelledby="currency-selector-label"
+								>
+									<option value="RU">RU</option>
+									<option value="USD">USD</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="ms-auto ms-sm-0 ms-lg-auto col-auto col-md-4 col-lg-auto d-flex align-items-end">
+						<button class="btn btn-primary btn-sm">
+							<span class="bi bi-search" aria-hidden="true"></span>
+							Найти
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="row align-items-baseline justify-content-between mb-4">
+				<div class="col-auto d-flex">
+					<h2 class="h4">
+						Результат поиска
+					</h2>
+				</div>
+				<div class="col-12 col-lg-4 d-flex align-items-center justify-content-start justify-content-lg-end">
+					<p id="items-per-page-text" class="mb-0 ms-2 ms-lg-0 me-lg-2 order-1 order-lg-0" aria-hidden="true">
+						Показать на странице
+					</p>
+					<select
+						class="form-select"
+						style="max-width: 100px;"
+						aria-labelledby="items-per-page-text"
+					>
+						<option value="25">25</option>
+						<option value="50">50</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 row-gap-4">
+				<div class="col">
+					<article class="card card--game h-100">
+						<div class="card__img-wrapper ratio ratio-4x3">
+							<img
+								class="bg-body-secondary object-fit-contain card-img"
+								src="http://31.41.44.86/images/games/3351/photo1.jpg"
+								alt="изображение игры"
+							>
+						</div>
+						<div class="card-body">
+							<a class="d-inline-block mb-1 text-decoration-none link-primary stretched-link focus-ring" href="#" target="_blank">
+								<h3 class="mb-0 h5 card-body__title">
+									Дино Твист
+								</h3>
+							</a>
+							<p class="mb-0 mb-1 text-secondary lh-sm card-body__text">
+								1 предложение
+							</p>
+							<p class="mb-0 lh-sm">
+								<strong class="text-bold card-body__text">
+									от 100 000₽
+								</strong>
+							</p>
+
+							<div class="position-absolute top-0 start-0 ms-2 mt-2 z-1">
+								<button class="lh-1 p-1 rounded focus-ring">
+									<span class="bi bi-heart"></span>
+									<div class="visually-hidden">
+										Добавить в избранное Дино Твист
+									</div>
+								</button>
+							</div>
+						</div>
+
+						<footer class="card-footer">
+							<dl class="card-footer-row row row-cols-4 gx-2 mb-0 lh-1 text-center text-secondary">
+								<div class="col">
+									<span class="bi bi-people-fill"></span>
+									<dt class="visually-hidden">
+										Количество игроков
+									</dt>
+									<dd class="d-block mb-0">
+										2 - 6
+									</dd>
+								</div>
+								<div class="col">
+									<span class="bi bi-hourglass-split"></span>
+									<dt class="visually-hidden">
+										Время игры
+									</dt>
+									<dd class="d-block mb-0">
+										15
+									</dd>
+								</div>
+								<div class="col">
+									<span class="bi bi-star-fill"></span>
+									<dt class="visually-hidden">
+										Оценки
+									</dt>
+									<dd class="d-block mb-0">
+										6.3
+									</dd>
+								</div>
+								<div class="col">
+									<span class="bi bi-question-circle-fill"></span>
+									<dt class="visually-hidden">
+										Сложность
+									</dt>
+									<dd class="d-block mb-0">
+										1.5
+										<div class="visually-hidden">
+											из 5
+										</div>
+									</dd>
+								</div>
+							</dl>
+						</footer>
+					</article>
+				</div>
+				<div class="col">
+					<article class="card card--game h-100">
+						<div class="card__img-wrapper ratio ratio-4x3">
+							<img
+								class="bg-body-secondary object-fit-contain card-img"
+								src="http://31.41.44.86/images/games/3351/photo1.jpg"
+								alt="изображение игры"
+							>
+						</div>
+						<div class="card-body">
+							<a class="d-inline-block mb-1 text-decoration-none link-primary stretched-link focus-ring" href="#" target="_blank">
+								<h3 class="mb-0 h5 card-body__title">
+									Дино Твист
+								</h3>
+							</a>
+							<p class="mb-0 mb-1 text-secondary lh-sm card-body__text">
+								1 предложение
+							</p>
+							<p class="mb-0 lh-sm">
+								<strong class="text-bold card-body__text">
+									от 100 000₽
+								</strong>
+							</p>
+
+							<div class="position-absolute top-0 start-0 ms-2 mt-2 z-1">
+								<button class="lh-1 p-1 rounded focus-ring">
+									<span class="bi bi-heart"></span>
+									<div class="visually-hidden">
+										Добавить в избранное Дино Твист
+									</div>
+								</button>
+							</div>
+						</div>
+
+						<footer class="card-footer">
+							<dl class="card-footer-row row row-cols-4 gx-2 mb-0 lh-1 text-center text-secondary">
+								<div class="col">
+									<span class="bi bi-people-fill"></span>
+									<dt class="visually-hidden">
+										Количество игроков
+									</dt>
+									<dd class="d-block mb-0">
+										2 - 6
+									</dd>
+								</div>
+								<div class="col">
+									<span class="bi bi-hourglass-split"></span>
+									<dt class="visually-hidden">
+										Время игры
+									</dt>
+									<dd class="d-block mb-0">
+										15
+									</dd>
+								</div>
+								<div class="col">
+									<span class="bi bi-star-fill"></span>
+									<dt class="visually-hidden">
+										Оценки
+									</dt>
+									<dd class="d-block mb-0">
+										6.3
+									</dd>
+								</div>
+								<div class="col">
+									<span class="bi bi-question-circle-fill"></span>
+									<dt class="visually-hidden">
+										Сложность
+									</dt>
+									<dd class="d-block mb-0">
+										1.5
+										<div class="visually-hidden">
+											из 5
+										</div>
+									</dd>
+								</div>
+							</dl>
+						</footer>
+					</article>
+				</div>
+			</div>
+		</div>
+
+		<div id="pagination" class="mt-4 container">
+			<div class="row row-gap-3 align-items-center justify-content-between">
+				<div class="col-auto">
+					<nav aria-label="Навигация по страницам">
+						<ul class="pagination mb-0">
+							<li class="page-item">
+								<a class="page-link disabled" href="#">
+									<span class="bi bi-arrow-left-short"></span>
+									<span class="visually-hidden">Предыдущая</span>
+								</a>
+							</li>
+							<li class="page-item" aria-current="page">
+								<a class="page-link active" href="#">1</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">3</a>
+							</li>
+							<li class="page-item">
+								<span class="page-link disabled">...</spa>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">60</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">
+									<span class="bi bi-arrow-right-short"></span>
+									<span class="visually-hidden">Следующая</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer id="footer" class="mt-auto">
+		<div class="py-3 bg-body-secondary text-body-emphasis">
+			<div class="container">
+				<div class="row gy-2 align-items-center text-center text-sm-start justify-content-sm-between">
+					<div class="col-12 col-sm-auto order-1 order-sm-0">
+						<p class="mb-0">
+							© 2023 Настольные игры | Агрегатор
+						</p>
+					</div>
+					<div class="col-12 col-sm-auto">
+						<a
+							class="link-body-emphasis icon-link icon-link-hover text-reset"
+							style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"
+							href="#header"
+						>
+							<span class="bi bi-arrow-up-short" aria-hidden="true"></span>
+							вверх
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
