@@ -86,6 +86,7 @@ body {
     
 }
 
+/* TODO отрефакторить */
 .the-game__container {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -215,6 +216,243 @@ body {
     border: var(--bs-border-width) solid var(--bs-border-color);;
     color: var(--bs-body-color);
     background-color: var(--bs-body-bg);
+}
+
+.the-game-card {
+    
+}
+
+.the-game-card__img-wrapper {
+
+}
+
+.the-game-card__info {
+    
+}
+
+.the-game-card__info-icons {
+    
+}
+
+.the-game-card__info-details {
+    
+}
+
+
+
+@media (min-width: 768px) {
+    .the-game-card {
+        display: grid !important;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "img-wrapper info-details"
+            "info-icons info-details"
+        ;
+    }
+
+    .the-game-card__img-wrapper {
+        grid-area: img-wrapper;
+    }
+
+    .the-game-card__info-icons {
+        grid-area: info-icons;
+    }
+
+    .the-game-card__info-details {
+        grid-area: info-details;
+    }
+
+    .the-game-card__info-icon {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .the-game-card {
+        display: block !important;
+    }
+
+    .the-game-card__img-wrapper {
+        grid-area: img-wrapper;
+    }
+
+    .the-game-card__info-icons {
+        grid-area: info-icons;
+    }
+
+    .the-game-card__info-details {
+        grid-area: info-details;
+    }
+
+    .the-game-card__info-icon {
+        font-size: 1rem;
+    }
+}
+
+
+.game-price-card {
+    
+}
+
+.game-price-card.success {
+    border-color: var(--bs-success);
+    background-color: var(--bs-secondary-bg);
+}
+
+.game-price-card__container {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "header header"
+        "add add"
+        "price links"
+    ;
+    padding: 0.5rem;
+}
+
+.game-price-card__header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "img meta"
+        "img location"
+    ;
+}
+
+.game-price-card__img {
+    --size: 48px;
+    grid-area: img;
+    width: var(--size);
+    height: var(--size);
+    margin-right: 1rem;
+    border-radius: var(--bs-border-radius-sm);
+}
+
+.game-price-card__meta {
+    grid-area: meta;
+    display: flex;
+    align-items: baseline;
+}
+
+.game-price-card__market {
+    margin-right: 0.5rem;
+    font-size: 1.125rem;
+    color: var(--bs-primary-text-emphasis);
+}
+
+.game-price-card__date {
+    font-size: 0.875rem;
+    color: var(--bs-secondary-text-emphasis);
+    opacity: 0.8;
+}
+
+.game-price-card__location {
+    grid-area: location;
+    max-width: 320px;
+}
+
+.game-price-card__price {
+    grid-area: price;
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1;
+    align-self: flex-end;
+}
+
+.game-price-card__add {
+    grid-area: add;
+    align-self: flex-end;
+}
+
+.game-price-card__links {
+    grid-area: links;
+}
+
+.game-price-card__keywords {
+    grid-area: links;
+    font-weight: bold;
+}
+
+.game-price-card__keywords-list > li:not(:last-child):after {
+    content: ',';
+}
+
+@media (min-width: 480px) {
+    .game-price-card__container {
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+            "header price"
+            "add links"
+        ;
+    }
+
+    .game-price-card__price {
+        text-align: right
+    }
+
+    .game-price-card__price {
+        line-height: 1.5;
+        align-self: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .game-price-card__container {
+        gap: 1rem;
+        grid-template-columns: minmax(auto, 50%) minmax(auto, 200px) auto auto;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "header add price links"
+        ;
+        align-items: center;
+    }
+
+    .game-price-card__add {
+        align-self: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .game-price-card__container {
+        gap: 1.25rem;
+        grid-template-columns: minmax(auto, 50%) minmax(auto, 200px) auto max-content;
+        grid-template-areas: 
+            "header add price links"
+        ;
+        align-items: center;
+    }
+
+    .game-price-card__header {
+        --gap: 1.5rem;
+        gap: var(--gap);
+        grid-template-columns: auto auto 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "img meta location"
+        ;
+        align-items: center;
+        line-height: 1.5rem;
+    }
+
+    .game-price-card__meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-price-card__market {
+        width: 120px;
+    }
+
+    .game-price-card__img {
+        margin-right: 0;
+    }
 }
 
 
