@@ -151,6 +151,73 @@ body {
 }
 
 
+.choices--no-right-padding .choices__list--dropdown .choices__item--selectable, .choices__list[aria-expanded] .choices__item--selectable {
+    padding-right: 10px !important;
+}
+
+.choices--bs-sm .choices__inner {
+    padding: 2px 8px;
+    min-height: 30.7778px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.choices--bs-sm[data-type="select-one"] .choices__inner {
+    padding: 4px 8px;
+    height: 30.7778px;
+    min-height: unset;
+}
+
+.choices--bs-sm .choices__input {
+    background-color: transparent;
+    padding: 0;
+}
+
+.choices--bs-sm .choices__inner .choices__list {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.choices--bs-sm .choices__inner .choices__item {
+    margin: 2px 2px 0 0 !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    line-height: 1.15 !important;
+}
+
+.choices--bs-sm[data-type="select-one"] .choices__inner .choices__item {
+    margin: 0 !important;
+    padding-bottom: 6px !important;
+}
+
+.choices--truncate--item .choices__inner .choices__item,
+.choices--truncate .choices__item.choices__item--selectable {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.choices--truncate--item .choices__inner .choices__item {
+    max-width: calc(100% - 12px); /* необходимо, чтобы отображалась кнопка */
+}
+
+.choices--truncate .choices__list.choices__list--single {
+    padding-right: 32px;
+}
+
+.choices--truncate--item .choices__inner .choices__item {
+    
+}
+
+.choices--bs-theme--default .choices__inner {
+    border: var(--bs-border-width) solid var(--bs-border-color);;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+}
+
+
 .bi-theme-icons {
     width: 1em;
     height: 1em;
