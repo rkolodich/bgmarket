@@ -384,6 +384,36 @@ body {
     content: ',';
 }
 
+
+.icon {
+    --icon-url: none;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-image: var(--icon-url);
+    background-size: cover;
+    line-height: inherit;
+}
+
+.icon--logo--tesera,
+.icon--logo--nastolio,
+.icon--logo--bgg {
+    border-radius: var(--bs-border-radius);
+}
+
+.icon--logo--tesera {
+    --icon-url: url(/assets/img/logo/tesera.jpg);
+}
+
+.icon--logo--nastolio {
+    --icon-url: url(/assets/img/logo/nastolio.jpg);
+}
+
+.icon--logo--bgg {
+    --icon-url: url(/assets/img/logo/bgg.jpg);
+}
+
+
 @media (min-width: 480px) {
     .game-price-card__container {
         grid-template-rows: auto auto;
