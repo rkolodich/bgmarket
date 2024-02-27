@@ -21,16 +21,6 @@ body {
 }
 
 
-.card--game {
-
-}
-
-/* @media screen and (min-width: 375px) and (max-width: 767px) {
-    * {
-        background-color: red !important;
-    }
-} */
-
 @media screen and (max-width: 767px) {
     .card--game {
         display: grid !important;
@@ -82,16 +72,6 @@ body {
     }
 }
 
-.the-game {
-    
-}
-
-/* TODO отрефакторить */
-.the-game__container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-}
 
 @media (max-width: 768px) {
     .the-game__img {
@@ -291,10 +271,6 @@ body {
     }
 }
 
-
-.game-price-card {
-    
-}
 
 .game-price-card.success {
     border-color: var(--bs-success);
