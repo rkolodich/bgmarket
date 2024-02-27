@@ -283,8 +283,8 @@
 	<main id="main" class="my-5">
 		<div class="container">
 			<div class="the-game">
-				<div class="row gx-4 gy-4 gy-md-3">
-					<div class="col-sm-12 col-lg-4 col-xl-3">
+				<div class="the-game__grid gx-4 gy-4 gy-md-3">
+					<div class="the-game__grid-item the-game__grid-item--card">
 						<div
 							class="card shadow-sm border-0 the-game-card"
 							aria-label="Информация об игре"
@@ -458,15 +458,17 @@
 						</div>
 					</div>
 
-					<div class="col-12 col-lg-8 col-xl-9">
-						<h1 id="game-title" class="h2 mb-4">
+					<div class="the-game__grid-item the-game__grid-item--header">
+						<h1 id="game-title" class="h2">
 							Дино Твист
 	
 							<span class="d-block text-secondary fs-5 mt-2" lang="en">
 								Dino Twist
 							</span>
 						</h1>
+					</div>
 
+					<div class="the-game__grid-item the-game__grid-item--body">
 						<h2 id="game-prices" class="h4">Цены</h2>
 
 						<div class="vstack gap-2">

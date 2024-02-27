@@ -99,9 +99,51 @@ body {
     width: 220px;
 }
 
+.the-game__grid {
+    display: grid;
+    gap: var(--bs-gutter-y) var(--bs-gutter-x);
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+        "header"
+        "card"
+        "body"
+    ;
+}
+
+.the-game__grid-item {}
+
+.the-game__grid-item--card {
+    grid-area: card;
+}
+
+.the-game__grid-item--header {
+    grid-area: header;
+}
+
+.the-game__grid-item--body {
+    grid-area: body;
+}
+
 @media (min-width: 768px) {
     .the-game__prop-value {
         padding-left: 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    .the-game__grid {
+        grid-template-columns: 33% 1fr;
+        grid-template-areas:
+            "card header"
+            "card body"
+        ;
+    }
+}
+
+@media (min-width: 1200px) {
+    .the-game__grid {
+        grid-template-columns: 25% 1fr;
     }
 }
 
