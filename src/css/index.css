@@ -239,6 +239,14 @@ body {
 }
 
 
+.simple-spoiler {
+
+}
+
+.simple-spoiler__hidden {
+    display: none !important;
+}
+
 
 @media (min-width: 768px) {
     .the-game-card {
