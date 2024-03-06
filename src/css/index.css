@@ -520,6 +520,13 @@ body {
     fill: currentcolor;
 }
 
+/* --- Choices --- */
+
+.choices__item--selected {
+    background-color: var(--bs-primary-bg-subtle) !important;
+    color: var(--bs-secondary-text-emphasis) !important;
+}
+
 /* --- Bootstrap utils (existed if specific flag is true) --- */
 
 .mt-n1 {
