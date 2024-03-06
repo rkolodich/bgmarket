@@ -207,6 +207,7 @@
 									type="search"
 									placeholder="Найти игру"
 									aria-labelledby="search-button"
+									name="title"
 								>
 								<button
 									id="search-button"
@@ -286,7 +287,7 @@
 	<main id="main" class="my-5">
 		<div class="container">
 			<div class="card mb-5 p-2 shadow-sm">
-				<form class="row g-2 g-lg-3">
+				<form id="form-filters" class="row g-2 g-lg-3">
 					<div class="col-12 col-md-6 col-lg">
 						<label for="game-title-select" class="form-label">
 							Название игры
@@ -295,6 +296,7 @@
 							id="game-title-select"
 							class="form-control form-control-sm"
 							type="text"
+							name="title"
 						>
 					</div>
 					<div class="col-12 col-md-6 col-lg">
@@ -304,6 +306,7 @@
 						<select
 							id="town"
 							class="form-select form-select-sm"
+							name="town"
 						>
 						</select>
 					</div>
@@ -311,7 +314,11 @@
 						<label for="formGroupExampleInput" class="form-label">
 							Состояние
 						</label>
-						<select class="form-select form-select-sm" aria-label="Default select example">
+						<select
+							class="form-select form-select-sm"
+							aria-label="Default select example"
+							name="state"
+						>
 							<option value="new">Новая</option>
 							<option value="used">Б/У</option>
 						</select>
@@ -329,6 +336,7 @@
 									pattern="[0-9]*"
 									inputmode="numeric"
 									placeholder="от"
+									name="priceFrom"
 								>
 							</div>
 								<div class="col">
@@ -339,12 +347,14 @@
 									pattern="[0-9]*"
 									inputmode="numeric"
 									placeholder="до"
+									name="priceTo"
 								>
 							</div>
 							<div class="col">
 								<select
 									class="form-select form-select-sm"
 									aria-labelledby="currency-selector-label"
+									name="currency"
 								>
 									<option value="RU">RU</option>
 									<option value="USD">USD</option>
@@ -353,7 +363,10 @@
 						</div>
 					</div>
 					<div class="ms-auto ms-lg-auto col-auto col-md col-lg-auto d-flex align-items-end">
-						<button class="btn btn-primary btn-sm w-100">
+						<button
+							id="search-with-filters"
+							class="btn btn-primary btn-sm w-100"
+						>
 							<span class="bi bi-search" aria-hidden="true"></span>
 							Найти
 						</button>

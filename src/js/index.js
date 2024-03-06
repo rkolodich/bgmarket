@@ -1,5 +1,10 @@
 import { SimpleSpoiler } from "./components.js"
-import { getSelectedOption } from "./utils.js"
+import { 
+	getSelectedOption,
+	getEl,
+	formDataToSearchParams,
+	getUrl,
+} from "./utils.js"
 
 document.addEventListener('DOMContentLoaded', init)
 
@@ -16,6 +21,7 @@ function init() {
 	})
 
 	initSpoilers()
+	initSearch()
 }
 
 function initSpoilers() {
@@ -42,4 +48,20 @@ function initSpoilers() {
 		target: '#game-price-cards-by-words-btn',
 		soft: true,
 	})
+}
+
+function initSearch() {
+	let btnEl
+
+	btnEl = getEl('#search-with-filters')
+	if (btnEl) {
+		btnEl.addEventListener('click', (e) => {
+			e.preventDefault()
+			const searchParams = formDataToSearchParams('#form-filters')
+			const { origin, pathname, } = getUrl()
+			const url = origin + pathname + '?' + searchParams;
+			history.pushState({}, '', url);
+			window.location.replace(url);
+		})
+	}
 }

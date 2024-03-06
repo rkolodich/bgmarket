@@ -136,3 +136,24 @@ export function removeClass(elsOrSelector, _class, target = document) {
 		el.classList.remove(...castToArray(_class));
 	});
 }
+
+/**
+ * @param {string|HTMLElement} formOrSelector
+ * @returns {string|undefined}
+ */
+export function formDataToSearchParams(formOrSelector) {
+	const el = getEl(formOrSelector)
+	if (!el) {
+		return;
+	}
+	const form = new FormData(el)
+	return new URLSearchParams(form).toString()
+}
+
+/**
+ * @param {string}
+ * @returns {URL}
+ */
+export function getUrl(strUrl = window.location.href) {
+	return new URL(strUrl)
+}
