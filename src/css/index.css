@@ -21,16 +21,6 @@ body {
 }
 
 
-.card--game {
-
-}
-
-/* @media screen and (min-width: 375px) and (max-width: 767px) {
-    * {
-        background-color: red !important;
-    }
-} */
-
 @media screen and (max-width: 767px) {
     .card--game {
         display: grid !important;
@@ -82,16 +72,6 @@ body {
     }
 }
 
-.the-game {
-    
-}
-
-/* TODO отрефакторить */
-.the-game__container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-}
 
 @media (max-width: 768px) {
     .the-game__img {
@@ -119,9 +99,51 @@ body {
     width: 220px;
 }
 
+.the-game__grid {
+    display: grid;
+    gap: var(--bs-gutter-y) var(--bs-gutter-x);
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+        "header"
+        "card"
+        "body"
+    ;
+}
+
+.the-game__grid-item {}
+
+.the-game__grid-item--card {
+    grid-area: card;
+}
+
+.the-game__grid-item--header {
+    grid-area: header;
+}
+
+.the-game__grid-item--body {
+    grid-area: body;
+}
+
 @media (min-width: 768px) {
     .the-game__prop-value {
         padding-left: 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    .the-game__grid {
+        grid-template-columns: 33% 1fr;
+        grid-template-areas:
+            "card header"
+            "card body"
+        ;
+    }
+}
+
+@media (min-width: 1200px) {
+    .the-game__grid {
+        grid-template-columns: 25% 1fr;
     }
 }
 
@@ -223,7 +245,8 @@ body {
 }
 
 .the-game-card__img-wrapper {
-
+    width: 220px;
+    box-sizing: content-box;
 }
 
 .the-game-card__info {
@@ -239,11 +262,19 @@ body {
 }
 
 
+.simple-spoiler {
+
+}
+
+.simple-spoiler__hidden {
+    display: none !important;
+}
+
 
 @media (min-width: 768px) {
     .the-game-card {
         display: grid !important;
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 50% 50%;
         grid-template-rows: auto 1fr;
         grid-template-areas:
             "img-wrapper info-details"
@@ -290,10 +321,6 @@ body {
     }
 }
 
-
-.game-price-card {
-    
-}
 
 .game-price-card.success {
     border-color: var(--bs-success);
@@ -383,6 +410,36 @@ body {
     content: ',';
 }
 
+
+.icon {
+    --icon-url: none;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-image: var(--icon-url);
+    background-size: cover;
+    line-height: inherit;
+}
+
+.icon--logo--tesera,
+.icon--logo--nastolio,
+.icon--logo--bgg {
+    border-radius: var(--bs-border-radius);
+}
+
+.icon--logo--tesera {
+    --icon-url: url(/assets/img/logo/tesera.jpg);
+}
+
+.icon--logo--nastolio {
+    --icon-url: url(/assets/img/logo/nastolio.jpg);
+}
+
+.icon--logo--bgg {
+    --icon-url: url(/assets/img/logo/bgg.jpg);
+}
+
+
 @media (min-width: 480px) {
     .game-price-card__container {
         grid-template-rows: auto auto;
@@ -461,6 +518,13 @@ body {
     height: 1em;
     vertical-align: -0.125em;
     fill: currentcolor;
+}
+
+/* --- Choices --- */
+
+.choices__item--selected {
+    background-color: var(--bs-primary-bg-subtle) !important;
+    color: var(--bs-secondary-text-emphasis) !important;
 }
 
 /* --- Bootstrap utils (existed if specific flag is true) --- */

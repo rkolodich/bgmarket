@@ -17,6 +17,11 @@
 	<script src="./lib/bootstrap/js/bootstrap.bundle.js" defer></script>
 	<script src="./lib/js-cookie/js.cookie.min.js" defer></script>
 	<script src="./js/index.js" defer type="module"></script>
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="./assets/favicon/site.webmanifest">
 </head>
 <body>
 	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -117,22 +122,6 @@
 							</li>
 						</ul>
 					</li>
-					<!-- <li class="nav-item">
-						<a
-							class="nav-link link-body-emphasis px-2"
-							href="#"
-						>
-							Вход
-						</a>
-					</li>
-					<li class="nav-item">
-						<a
-							class="nav-link link-body-emphasis px-2"
-							href="#"
-						>
-							Регистрация
-						</a>
-					</li> -->
 				</ul>
 				<div class="d-lg-none ms-auto">
 					<button 
@@ -249,6 +238,7 @@
 											type="search"
 											placeholder="Название игры"
 											aria-labelledby="search-button"
+											name="title"
 										>
 										<button
 											class="w-100 mt-3 btn btn-lg btn-outline-primary"
@@ -299,8 +289,8 @@
 	<main id="main" class="my-5">
 		<div class="container">
 			<div class="the-game">
-				<div class="row gx-4 gy-4 gy-md-3">
-					<div class="col-sm-12 col-lg-4 col-xl-3">
+				<div class="the-game__grid gx-4 gy-4 gy-md-3">
+					<div class="the-game__grid-item the-game__grid-item--card">
 						<div
 							class="card shadow-sm border-0 the-game-card"
 							aria-label="Информация об игре"
@@ -388,8 +378,8 @@
 									<dt class="the-game__prop-name">
 										Категории
 									</dt>
-									<dd class="the-game__prop-value">
-										<ul class="row gx-1 mb-0 ps-0" role="list">
+									<dd id="dd-categories" class="the-game__prop-value">
+										<ul class="simple-spoiler row gx-1 mb-0 ps-0" role="list">
 											<li class="col-auto">
 												<a class="the-game__badge badge text-bg-secondary text-decoration-none text-truncate" href="#" title="Категория">
 													<span class="bi bi-tag" aria-hidden="true"></span>
@@ -402,22 +392,33 @@
 													Очень длинна категория
 												</a>
 											</li>
-											<li class="col-auto">
+											<li class="simple-spoiler__hidden col-auto">
 												<a class="the-game__badge badge text-bg-secondary text-decoration-none text-truncate" href="#" title="Очень и очень длинная категория, что даже не помещается">
 													<span class="bi bi-tag" aria-hidden="true"></span>
 													Очень и очень длинная категория, что даже не помещается
 												</a>
 											</li>
-											<li class="col-auto">
+											<li class="simple-spoiler__hidden col-auto">
 												<a class="the-game__badge badge text-bg-secondary text-decoration-none text-truncate" href="#" title="Очень и очень длинная категория, что даже не помещается">
 													<span class="bi bi-tag" aria-hidden="true"></span>
 													Очень и очень длинная категория, что даже не помещается
 												</a>
 											</li>
-											<li class="col-auto">
+											<li class="simple-spoiler__hidden col-auto">
 												<a class="the-game__badge badge text-bg-secondary text-decoration-none text-truncate" href="#" title="Очень и очень длинная категория, что даже не помещается">
 													<span class="bi bi-tag" aria-hidden="true"></span>
 													Очень и очень длинная категория, что даже не помещается
+												</a>
+											</li>
+											<li class="col-12">
+												<a
+													id="dd-categories-btn"
+													class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+													data-spoiler-text="Скрыть"
+													href="#"
+													role="button"
+												>
+													Ещё 2
 												</a>
 											</li>
 										</ul>
@@ -425,7 +426,7 @@
 									<dt class="the-game__prop-name">
 										Механики
 									</dt>
-									<dd class="the-game__prop-value">
+									<dd id="dd-mechanics" class="the-game__prop-value">
 										<ul class="row gx-1 mb-0 ps-0" role="list">
 											<li class="col-auto">
 												<a class="the-game__badge badge text-bg-secondary text-decoration-none text-truncate" href="#" title="Механика">
@@ -439,10 +440,43 @@
 													Длинное название механики
 												</a>
 											</li>
-											<li class="col-auto">
+											<li class="simple-spoiler__hidden col-auto">
 												<a class="the-game__badge badge text-bg-secondary text-decoration-none text-truncate" href="#" title="Очень и очень длинное название механики, что даже не помещается">
 													<span class="bi bi-gear" aria-hidden="true"></span>
 													Очень и очень длинное название механики, что даже не помещается
+												</a>
+											</li>
+											<li class="col-12">
+												<a
+													id="dd-mechanics-btn"
+													class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+													data-spoiler-text="Скрыть"
+													href="#"
+													role="button"
+												>
+													Ещё 1
+												</a>
+											</li>
+										</ul>
+									</dd>
+									<dt class="the-game__prop-name">
+										Ссылки
+									</dt>
+									<dd class="the-game__prop-value">
+										<ul class="row gx-2 ps-0 mb-0" role="list">
+											<li class="col-auto">
+												<a href="#" target="_blank">
+													Тесера
+												</a>
+											</li>
+											<li class="col-auto">
+												<a href="#" target="_blank">
+													Настолио
+												</a>
+											</li>
+											<li class="col-auto">
+												<a href="#" target="_blank">
+													BGG
 												</a>
 											</li>
 										</ul>
@@ -451,23 +485,21 @@
 							</div>
 						</div>
 					</div>
-					<!-- <div class="col-md-7 col-lg-8 col-xl-9">
-						
 
-						
-					</div> -->
-					<div class="col-12 col-lg-8 col-xl-9">
-						<h1 id="game-title" class="h2 mb-4">
+					<div class="the-game__grid-item the-game__grid-item--header">
+						<h1 id="game-title" class="h2">
 							Дино Твист
 	
 							<span class="d-block text-secondary fs-5 mt-2" lang="en">
 								Dino Twist
 							</span>
 						</h1>
+					</div>
 
+					<div class="the-game__grid-item the-game__grid-item--body">
 						<h2 id="game-prices" class="h4">Цены</h2>
 
-						<div class="vstack gap-2">
+						<div id="game-price-cards" class="vstack gap-2">
 							<article class="card game-price-card success">
 								<div class="game-price-card__container">
 									<header class="game-price-card__header">
@@ -582,11 +614,96 @@
 									</div>
 								</div>
 							</article>
+							<article class="simple-spoiler__hidden card game-price-card">
+								<div class="game-price-card__container">
+									<header class="game-price-card__header">
+										<img
+											class="game-price-card__img"
+											src="http://31.41.44.86/img/tesera.webp"
+											alt="Иконка Тесеры"
+										>
+										<div class="game-price-card__meta">
+											<span class="game-price-card__market">
+												Тесера
+											</span>
+											<span class="game-price-card__date">
+												03.07.2023
+											</span>
+										</div>
+										<span class="game-price-card__location">
+											Кировск, Россия
+										</span>
+									</header>
+									<div class="game-price-card__price">
+										1 500 ₽	
+									</div>
+									<div class="game-price-card__add">
+										<div class="game-price-card__condition">
+											<span class="visually-hidden">
+												Состояние
+											</span>
+											Б/У
+										</div>
+									</div>
+									<div class="game-price-card__links">
+										<a class="btn btn-sm btn-primary" href="#">
+											перейти
+										</a>
+									</div>
+								</div>
+							</article>
+							<article class="simple-spoiler__hidden card game-price-card">
+								<div class="game-price-card__container">
+									<header class="game-price-card__header">
+										<img
+											class="game-price-card__img"
+											src="http://31.41.44.86/img/tesera.webp"
+											alt="Иконка Тесеры"
+										>
+										<div class="game-price-card__meta">
+											<span class="game-price-card__market">
+												Тесера
+											</span>
+											<span class="game-price-card__date">
+												03.07.2023
+											</span>
+										</div>
+										<span class="game-price-card__location">
+											Кировск, Россия
+										</span>
+									</header>
+									<div class="game-price-card__price">
+										1 500 ₽	
+									</div>
+									<div class="game-price-card__add">
+										<div class="game-price-card__condition">
+											<span class="visually-hidden">
+												Состояние
+											</span>
+											Б/У
+										</div>
+									</div>
+									<div class="game-price-card__links">
+										<a class="btn btn-sm btn-primary" href="#">
+											перейти
+										</a>
+									</div>
+								</div>
+							</article>
+							<a
+								id="game-price-cards-btn"
+								class="mx-auto link link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+								data-spoiler-text="Скрыть"
+								href="#"
+								role="button"
+							>
+								Ещё 2
+							</a>
 						</div>
 
-						<hr class="my-3 my-md-5 border-top border-dark">
+						<hr class="my-2 my-md-4 border-top border-dark">
 
-						<div class="vstack gap-2">
+						<div id="game-price-cards-by-words" class="vstack gap-2">
 							<article class="card game-price-card success">
 								<div class="game-price-card__container">
 									<header class="game-price-card__header">
@@ -628,6 +745,179 @@
 									</div>
 								</div>
 							</article>
+							<article class="card game-price-card success">
+								<div class="game-price-card__container">
+									<header class="game-price-card__header">
+										<img
+											class="game-price-card__img"
+											src="http://31.41.44.86/img/tesera.webp"
+											alt="Иконка Тесеры"
+										>
+										<div class="game-price-card__meta">
+											<span class="game-price-card__market">
+												Тесера
+											</span>
+											<span class="game-price-card__date">
+												03.07.2023
+											</span>
+										</div>
+										<span class="game-price-card__location">
+											Кировск, Россия
+										</span>
+									</header>
+									<div class="game-price-card__price">
+										1 500 ₽	
+									</div>
+									<div class="game-price-card__add">
+										<div class="game-price-card__keywords">
+											<ul
+												class="ps-0 mb-0 hstack gap-1 game-price-card__keywords-list" role="list"
+												title="Ключевые слова"
+											>
+												<li>rise</li>
+												<li>world</li>
+											</ul>
+										</div>
+									</div>
+									<div class="game-price-card__links">
+										<a class="btn btn-sm btn-primary" href="#">
+											перейти
+										</a>
+									</div>
+								</div>
+							</article>
+							<article class="card game-price-card success">
+								<div class="game-price-card__container">
+									<header class="game-price-card__header">
+										<img
+											class="game-price-card__img"
+											src="http://31.41.44.86/img/tesera.webp"
+											alt="Иконка Тесеры"
+										>
+										<div class="game-price-card__meta">
+											<span class="game-price-card__market">
+												Тесера
+											</span>
+											<span class="game-price-card__date">
+												03.07.2023
+											</span>
+										</div>
+										<span class="game-price-card__location">
+											Кировск, Россия
+										</span>
+									</header>
+									<div class="game-price-card__price">
+										1 500 ₽	
+									</div>
+									<div class="game-price-card__add">
+										<div class="game-price-card__keywords">
+											<ul
+												class="ps-0 mb-0 hstack gap-1 game-price-card__keywords-list" role="list"
+												title="Ключевые слова"
+											>
+												<li>rise</li>
+												<li>world</li>
+											</ul>
+										</div>
+									</div>
+									<div class="game-price-card__links">
+										<a class="btn btn-sm btn-primary" href="#">
+											перейти
+										</a>
+									</div>
+								</div>
+							</article>
+							<article class="simple-spoiler__hidden card game-price-card success">
+								<div class="game-price-card__container">
+									<header class="game-price-card__header">
+										<img
+											class="game-price-card__img"
+											src="http://31.41.44.86/img/tesera.webp"
+											alt="Иконка Тесеры"
+										>
+										<div class="game-price-card__meta">
+											<span class="game-price-card__market">
+												Тесера
+											</span>
+											<span class="game-price-card__date">
+												03.07.2023
+											</span>
+										</div>
+										<span class="game-price-card__location">
+											Кировск, Россия
+										</span>
+									</header>
+									<div class="game-price-card__price">
+										1 500 ₽	
+									</div>
+									<div class="game-price-card__add">
+										<div class="game-price-card__keywords">
+											<ul
+												class="ps-0 mb-0 hstack gap-1 game-price-card__keywords-list" role="list"
+												title="Ключевые слова"
+											>
+												<li>rise</li>
+												<li>world</li>
+											</ul>
+										</div>
+									</div>
+									<div class="game-price-card__links">
+										<a class="btn btn-sm btn-primary" href="#">
+											перейти
+										</a>
+									</div>
+								</div>
+							</article>
+							<article class="simple-spoiler__hidden card game-price-card success">
+								<div class="game-price-card__container">
+									<header class="game-price-card__header">
+										<img
+											class="game-price-card__img"
+											src="http://31.41.44.86/img/tesera.webp"
+											alt="Иконка Тесеры"
+										>
+										<div class="game-price-card__meta">
+											<span class="game-price-card__market">
+												Тесера
+											</span>
+											<span class="game-price-card__date">
+												03.07.2023
+											</span>
+										</div>
+										<span class="game-price-card__location">
+											Кировск, Россия
+										</span>
+									</header>
+									<div class="game-price-card__price">
+										1 500 ₽	
+									</div>
+									<div class="game-price-card__add">
+										<div class="game-price-card__keywords">
+											<ul
+												class="ps-0 mb-0 hstack gap-1 game-price-card__keywords-list" role="list"
+												title="Ключевые слова"
+											>
+												<li>rise</li>
+												<li>world</li>
+											</ul>
+										</div>
+									</div>
+									<div class="game-price-card__links">
+										<a class="btn btn-sm btn-primary" href="#">
+											перейти
+										</a>
+									</div>
+								</div>
+							</article>
+							<a
+								id="game-price-cards-by-words-btn"
+								class="mx-auto link link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+								data-spoiler-text="Скрыть"
+								href="#"
+								role="button"
+							>
+								Ещё 2
+							</a>
 						</div>
 					</div>
 				</div>

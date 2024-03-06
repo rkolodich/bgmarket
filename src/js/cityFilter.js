@@ -1,5 +1,6 @@
 import { fetchLocations, groupBy } from './api.js'
-import { debounce, debugAfter } from './utils.js';
+import { highlightChoseInList } from './vendor.js'
+import { debounce, debugAfter, getSelectedOption } from './utils.js';
 
 const selectId = 'town'
 const el = document.getElementById('town');
@@ -32,6 +33,7 @@ async function handleSearch(e) {
     data = prepareFetchLocationResult(data)
     choiceSelect.setChoices(data, 'value', 'label', true)
     e.target.parentNode.querySelector('input').focus();
+    highlightChoseInList(choiceSelect, el)
 }
 
 function prepareFetchLocationResult(items = []) {
