@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Поиск | BGM</title>
+	<title>О сайте | BGM</title>
 	<!-- Reset styles -->
 	<link rel="preload" href="./lib/destyle/index.css" as="style" />
 	<link rel="stylesheet" href="./lib/destyle/index.css">
@@ -11,14 +11,11 @@
 	<link rel="stylesheet" href="./css/index.css">
 	<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./lib/bootstrap-icons/font/bootstrap-icons.min.css">
-	<link rel="stylesheet" href="./lib/choices/choices.min.css">
 	<!-- Scripts -->
 	<link rel="preload" href="./js/themeToggler.js" as="script" />
 	<script src="./js/themeToggler.js" async></script>
 	<script src="./lib/bootstrap/js/bootstrap.bundle.js" defer></script>
 	<script src="./lib/js-cookie/js.cookie.min.js" defer></script>
-	<script src="./lib/choices/choices.min.js" defer></script>
-	<script src="./js/cityFilter.js" defer type="module"></script>
 	<script src="./js/index.js" defer type="module"></script>
 	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
@@ -60,7 +57,7 @@
 			<div class="container d-flex flex-wrap align-items-center">
 				<ul class="nav me-auto ms-n2 d-none d-lg-flex">
 					<li class="nav-item">
-						<a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">
+						<a href="#" class="nav-link link-body-emphasis px-2">
 							Главная
 						</a>
 					</li>
@@ -75,7 +72,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="#" class="nav-link link-body-emphasis px-2">
+						<a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">
 							О сайте
 						</a>
 					</li>
@@ -212,7 +209,6 @@
 									type="search"
 									placeholder="Найти игру"
 									aria-labelledby="search-button"
-									name="title"
 								>
 								<button
 									id="search-button"
@@ -242,6 +238,7 @@
 											type="search"
 											placeholder="Название игры"
 											aria-labelledby="search-button"
+											name="title"
 										>
 										<button
 											class="w-100 mt-3 btn btn-lg btn-outline-primary"
@@ -291,295 +288,7 @@
 
 	<main id="main" class="my-5">
 		<div class="container">
-			<div class="card mb-5 p-2 shadow-sm">
-				<form id="form-filters" class="row g-2 g-lg-3">
-					<div class="col-12 col-md-6 col-lg">
-						<label for="game-title-select" class="form-label">
-							Название игры
-						</label>
-						<input
-							id="game-title-select"
-							class="form-control form-control-sm"
-							type="text"
-							name="title"
-						>
-					</div>
-					<div class="col-12 col-md-6 col-lg">
-						<label for="town" class="form-label">
-							Город
-						</label>
-						<select
-							id="town"
-							class="form-select form-select-sm"
-							name="town"
-						>
-						</select>
-					</div>
-					<div class="col-12 col-md-6 col-lg-2">
-						<label for="formGroupExampleInput" class="form-label">
-							Состояние
-						</label>
-						<select
-							class="form-select form-select-sm"
-							aria-label="Default select example"
-							name="state"
-						>
-							<option value="new">Новая</option>
-							<option value="used">Б/У</option>
-						</select>
-					</div>
-					<div class="col-12 col-md-4 col-lg-3">
-						<label for="from" class="form-label">
-							Цена
-						</label>
-						<div class="row gx-1">
-							<div class="col">
-								<input
-									id="from"
-									class="form-control form-control-sm"
-									type="text"
-									pattern="[0-9]*"
-									inputmode="numeric"
-									placeholder="от"
-									name="priceFrom"
-								>
-							</div>
-								<div class="col">
-									<input
-									id="from"
-									class="form-control form-control-sm"
-									type="text"
-									pattern="[0-9]*"
-									inputmode="numeric"
-									placeholder="до"
-									name="priceTo"
-								>
-							</div>
-							<div class="col">
-								<select
-									class="form-select form-select-sm"
-									aria-labelledby="currency-selector-label"
-									name="currency"
-								>
-									<option value="RU">RU</option>
-									<option value="USD">USD</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="ms-auto ms-lg-auto col-auto col-md col-lg-auto d-flex align-items-end">
-						<button
-							id="search-with-filters"
-							class="btn btn-primary btn-sm w-100"
-						>
-							<span class="bi bi-search" aria-hidden="true"></span>
-							Найти
-						</button>
-					</div>
-				</form>
-			</div>
-
-			<div class="row align-items-baseline justify-content-between mb-4">
-				<div class="col-auto d-flex">
-					<h2 class="h4">
-						Результат поиска
-					</h2>
-				</div>
-				<div class="col-12 col-lg-4 d-flex align-items-center justify-content-start justify-content-lg-end">
-					<p id="items-per-page-text" class="mb-0 ms-2 ms-lg-0 me-lg-2 order-1 order-lg-0" aria-hidden="true">
-						Показать на странице
-					</p>
-					<select
-						class="form-select"
-						style="max-width: 100px;"
-						aria-labelledby="items-per-page-text"
-					>
-						<option value="25">25</option>
-						<option value="50">50</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 row-gap-4">
-				<div class="col">
-					<article class="card card--game h-100">
-						<div class="card__img-wrapper ratio ratio-4x3">
-							<img
-								class="bg-body-secondary object-fit-contain card-img"
-								src="http://31.41.44.86/images/games/3351/photo1.jpg"
-								alt="изображение игры"
-							>
-						</div>
-						<div class="card-body">
-							<a class="d-inline-block mb-1 text-decoration-none link-primary stretched-link focus-ring" href="#" target="_blank">
-								<h3 class="mb-0 h5 card-body__title">
-									Дино Твист
-								</h3>
-							</a>
-							<p class="mb-2 text-secondary lh-sm card-body__text">
-								1 предложение
-							</p>
-							<p class="mb-0 lh-sm">
-								<strong class="text-bold card-body__text">
-									от 100 000₽
-								</strong>
-							</p>
-						</div>
-
-						<footer class="card-footer">
-							<dl class="card-footer-row row row-cols-4 gx-2 mb-0 lh-1 text-center text-secondary">
-								<div class="col">
-									<span class="bi bi-people-fill"></span>
-									<dt class="visually-hidden">
-										Количество игроков
-									</dt>
-									<dd class="d-block mb-0">
-										2 - 6
-									</dd>
-								</div>
-								<div class="col">
-									<span class="bi bi-hourglass-split"></span>
-									<dt class="visually-hidden">
-										Время игры
-									</dt>
-									<dd class="d-block mb-0">
-										15
-									</dd>
-								</div>
-								<div class="col">
-									<span class="bi bi-star-fill"></span>
-									<dt class="visually-hidden">
-										Оценки
-									</dt>
-									<dd class="d-block mb-0">
-										6.3
-									</dd>
-								</div>
-								<div class="col">
-									<span class="bi bi-question-circle-fill"></span>
-									<dt class="visually-hidden">
-										Сложность
-									</dt>
-									<dd class="d-block mb-0">
-										1.5
-										<div class="visually-hidden">
-											из 5
-										</div>
-									</dd>
-								</div>
-							</dl>
-						</footer>
-					</article>
-				</div>
-				<div class="col">
-					<article class="card card--game h-100">
-						<div class="card__img-wrapper ratio ratio-4x3">
-							<img
-								class="bg-body-secondary object-fit-contain card-img"
-								src="http://31.41.44.86/images/games/3351/photo1.jpg"
-								alt="изображение игры"
-							>
-						</div>
-						<div class="card-body">
-							<a class="d-inline-block mb-1 text-decoration-none link-primary stretched-link focus-ring" href="#" target="_blank">
-								<h3 class="mb-0 h5 card-body__title">
-									Дино Твист
-								</h3>
-							</a>
-							<p class="mb-2 text-secondary lh-sm card-body__text">
-								1 предложение
-							</p>
-							<p class="mb-0 lh-sm">
-								<strong class="text-bold card-body__text">
-									от 100 000₽
-								</strong>
-							</p>
-						</div>
-
-						<footer class="card-footer">
-							<dl class="card-footer-row row row-cols-4 gx-2 mb-0 lh-1 text-center text-secondary">
-								<div class="col">
-									<span class="bi bi-people-fill"></span>
-									<dt class="visually-hidden">
-										Количество игроков
-									</dt>
-									<dd class="d-block mb-0">
-										2 - 6
-									</dd>
-								</div>
-								<div class="col">
-									<span class="bi bi-hourglass-split"></span>
-									<dt class="visually-hidden">
-										Время игры
-									</dt>
-									<dd class="d-block mb-0">
-										15
-									</dd>
-								</div>
-								<div class="col">
-									<span class="bi bi-star-fill"></span>
-									<dt class="visually-hidden">
-										Оценки
-									</dt>
-									<dd class="d-block mb-0">
-										6.3
-									</dd>
-								</div>
-								<div class="col">
-									<span class="bi bi-question-circle-fill"></span>
-									<dt class="visually-hidden">
-										Сложность
-									</dt>
-									<dd class="d-block mb-0">
-										1.5
-										<div class="visually-hidden">
-											из 5
-										</div>
-									</dd>
-								</div>
-							</dl>
-						</footer>
-					</article>
-				</div>
-			</div>
-		</div>
-
-		<div id="pagination" class="mt-4 container">
-			<div class="row row-gap-3 align-items-center justify-content-between">
-				<div class="col-auto">
-					<nav aria-label="Навигация по страницам">
-						<ul class="pagination mb-0">
-							<li class="page-item">
-								<a class="page-link disabled" href="#">
-									<span class="bi bi-arrow-left-short"></span>
-									<span class="visually-hidden">Предыдущая</span>
-								</a>
-							</li>
-							<li class="page-item" aria-current="page">
-								<a class="page-link active" href="#">1</a>
-							</li>
-							<li class="page-item">
-								<a class="page-link" href="#">2</a>
-							</li>
-							<li class="page-item">
-								<a class="page-link" href="#">3</a>
-							</li>
-							<li class="page-item">
-								<span class="page-link disabled">...</spa>
-							</li>
-							<li class="page-item">
-								<a class="page-link" href="#">60</a>
-							</li>
-							<li class="page-item">
-								<a class="page-link" href="#">
-									<span class="bi bi-arrow-right-short"></span>
-									<span class="visually-hidden">Следующая</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
+			О сайте
 		</div>
 	</main>
 
