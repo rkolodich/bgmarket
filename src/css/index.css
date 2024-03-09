@@ -440,7 +440,7 @@ body {
 }
 
 
-@media (min-width: 480px) {
+@media (min-width: 370px) {
     .game-price-card__container {
         grid-template-rows: auto auto;
         grid-template-areas: 
