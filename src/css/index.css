@@ -404,6 +404,8 @@ body {
 
 .game-price-card__links {
     grid-area: links;
+    display: flex;
+    align-items: flex-end;
 }
 
 .game-price-card__keywords {
