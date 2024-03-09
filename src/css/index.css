@@ -529,6 +529,22 @@ body {
 
 /* --- Choices --- */
 
+.is-open .choices__list--dropdown, .is-open .choices__list[aria-expanded],
+.choices[data-type*=select-one] .choices__input,
+.choices__list--dropdown, .choices__list[aria-expanded],
+.is-focused .choices__inner, .is-open .choices__inner {
+    background: var(--bs-body-bg) !important;
+    border-color: var(--bs-border-color) !important;
+}
+
+.choices__item.choices__item--choice.has-no-choices {
+    color: var(--bs-secondary-text-emphasis) !important;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background: var(--bs-secondary-bg) !important;
+}
+
 .choices__item--selected {
     background-color: var(--bs-primary-bg-subtle) !important;
     color: var(--bs-secondary-text-emphasis) !important;
