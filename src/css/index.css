@@ -392,6 +392,11 @@ body {
     align-self: flex-end;
 }
 
+.game-price-card__price-orig {
+    font-size: 0.875rem;
+    opacity: 0.75;
+}
+
 .game-price-card__add {
     grid-area: add;
     align-self: flex-end;
