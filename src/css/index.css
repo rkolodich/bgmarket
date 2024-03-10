@@ -418,6 +418,13 @@ body {
 }
 
 
+.mobile-nav {}
+
+.mobile-nav__link {
+	font-size: 1.55rem;
+}
+
+
 .icon {
 	--icon-url: none;
 	display: inline-block;
