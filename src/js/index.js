@@ -1,4 +1,5 @@
 import { SimpleSpoiler } from "./components.js"
+import { useOnScroll } from "./hooks.js"
 import { 
 	getSelectedOption,
 	getEl,
@@ -22,6 +23,7 @@ function init() {
 
 	initSpoilers()
 	initSearch()
+	initHeader()
 }
 
 function initSpoilers() {
@@ -63,5 +65,53 @@ function initSearch() {
 			history.pushState({}, '', url);
 			window.location.replace(url);
 		})
+	}
+}
+
+function initHeader() {
+	const headerEl = document.getElementById('header')
+	let isSticky = false
+	let isStickyActive = false
+
+	useOnScroll(({ toBottom, toTop, x, y }) => {
+		if (y < headerEl.offsetHeight) {
+			setSticky(false)
+			setStickyActive(false)
+			return
+		}
+		
+		if (toBottom) {
+			setSticky(true)
+			setStickyActive(false)
+		}
+		else if (toTop) {
+			setStickyActive(true)
+		}
+	}, { registerImmediately: true })
+
+	const _classes = {
+		sticky: 'header--sticky',
+		stickyActive: 'header--sticky--active',
+	}
+
+	function setSticky(value) {
+		if (value === isSticky) {
+			return
+		}
+
+		if (value) headerEl.classList.add(_classes.sticky)
+		else headerEl.classList.remove(_classes.sticky)
+		isSticky = value
+	}
+
+	function setStickyActive(value) {
+		if (isStickyActive === value) {
+			return
+		}
+
+		if (value) headerEl.classList.add(_classes.stickyActive)
+		else headerEl.classList.remove(_classes.stickyActive)
+
+		isStickyActive = value
 	}
 }

@@ -4,9 +4,25 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	overflow-x: hidden;
 }
 
 /* --- Components --- */
+.header {}
+
+.header--sticky {
+	transition: transform ease;
+	position: sticky;
+	top: 0;
+	transform: translateY(-100%);
+	z-index: 1;
+}
+
+.header--sticky--active {
+	transition-duration: 0.2s;
+	transform: translateY(0%);
+}
+
 
 .card__img-wrapper {
 	max-height: 240px;
@@ -102,7 +118,7 @@ body {
 .the-game__grid {
 	display: grid;
 	gap: var(--bs-gutter-y) var(--bs-gutter-x);
-	grid-template-columns: 1fr;
+	grid-template-columns: 100%;
 	grid-template-rows: min-content 1fr;
 	grid-template-areas:
 		"header"
@@ -415,6 +431,13 @@ body {
 
 .game-price-card__keywords-list > li:not(:last-child):after {
 	content: ',';
+}
+
+
+.mobile-nav {}
+
+.mobile-nav__link {
+	font-size: 1.55rem;
 }
 
 
