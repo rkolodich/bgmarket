@@ -24,6 +24,10 @@ body {
 }
 
 
+.card--game {
+	overflow: hidden;
+}
+
 .card__img-wrapper {
 	max-height: 240px;
 }
