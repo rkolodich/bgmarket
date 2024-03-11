@@ -23,7 +23,7 @@ function init() {
 
 	initSpoilers()
 	initSearch()
-	initHeader()
+	// initHeader()
 }
 
 function initSpoilers() {
