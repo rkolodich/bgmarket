@@ -70,48 +70,29 @@ function initSearch() {
 
 function initHeader() {
 	const headerEl = document.getElementById('header')
-	let isSticky = false
-	let isStickyActive = false
+	let isShown
 
-	useOnScroll(({ toBottom, toTop, x, y }) => {
-		if (y < headerEl.offsetHeight) {
-			setSticky(false)
-			setStickyActive(false)
-			return
-		}
-		
-		if (toBottom) {
-			setSticky(true)
-			setStickyActive(false)
+	useOnScroll(({ toBottom, toTop, y }) => {
+		if (y > headerEl.offsetHeight*2 && toBottom) {
+			setShown(false)
 		}
 		else if (toTop) {
-			setStickyActive(true)
+			setShown(true)
 		}
 	}, { registerImmediately: true })
 
 	const _classes = {
-		sticky: 'header--sticky',
-		stickyActive: 'header--sticky--active',
+		hidden: 'header--hidden',
+		shown: 'header--shown',
 	}
 
-	function setSticky(value) {
-		if (value === isSticky) {
+	function setShown(value) {
+		if (value === isShown) {
 			return
 		}
 
-		if (value) headerEl.classList.add(_classes.sticky)
-		else headerEl.classList.remove(_classes.sticky)
-		isSticky = value
-	}
-
-	function setStickyActive(value) {
-		if (isStickyActive === value) {
-			return
-		}
-
-		if (value) headerEl.classList.add(_classes.stickyActive)
-		else headerEl.classList.remove(_classes.stickyActive)
-
-		isStickyActive = value
+		headerEl.classList.add(value ? _classes.shown : _classes.hidden)
+		headerEl.classList.remove(value ? _classes.hidden : _classes.shown)
+		isShown = value
 	}
 }
