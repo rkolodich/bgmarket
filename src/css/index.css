@@ -8,18 +8,18 @@ body {
 }
 
 /* --- Components --- */
-.header {}
-
-.header--sticky {
-	transition: transform ease;
+.header {
+	transition: 0.3s transform ease-in-out;
 	position: sticky;
 	top: 0;
-	transform: translateY(-100%);
 	z-index: 1;
 }
 
-.header--sticky--active {
-	transition-duration: 0.2s;
+.header--hidden {
+	transform: translateY(-100%);
+}
+
+.header--shown {
 	transform: translateY(0%);
 }
 
