@@ -44,7 +44,7 @@ body {
 @media screen and (max-width: 767px) {
 	.card--game {
 		display: grid !important;
-		grid-template-columns: 50% 50%;
+		grid-template-columns: 180px 1fr;
 		grid-template-rows: 1fr auto;
 		grid-template-areas: 
 			"img-wrapper body"
