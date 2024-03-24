@@ -29,10 +29,6 @@ body {
 }
 
 .card__img-wrapper {
-	/* max-height: 240px; */
-}
-
-.card__img-wrapper {
 	pointer-events: none;
 }
 
@@ -48,7 +44,7 @@ body {
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991.9px) {
 	.card--game {
 		display: grid !important;
 		grid-template-columns: 180px 1fr;
