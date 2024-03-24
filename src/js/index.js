@@ -10,6 +10,13 @@ import {
 document.addEventListener('DOMContentLoaded', init)
 
 function init() {
+	initCurrencySelect()
+	initSpoilers()
+	initSearch()
+	initHeader()
+}
+
+function initCurrencySelect() {
 	const currencyEl = document.querySelector('#currency-select')
 	currencyEl.addEventListener('change', () => {
 		if (!Cookies) {
@@ -20,10 +27,6 @@ function init() {
 		Cookies.set('currency', value)
 		location.reload()
 	})
-
-	initSpoilers()
-	initSearch()
-	initHeader()
 }
 
 function initSpoilers() {
