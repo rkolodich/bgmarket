@@ -40,6 +40,13 @@ body {
 	pointer-events: all;
 }
 
+.card--game .card-body__title {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
 
 @media screen and (max-width: 767px) {
 	.card--game {
