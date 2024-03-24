@@ -68,6 +68,10 @@ body {
 	.card--game > * > .card-img {
 		border-radius: 0px;
 	}
+
+	.the-game__img {
+		max-width: 220px;
+	}
 }
 
 @media screen and (max-width: 430px) {
@@ -92,12 +96,6 @@ body {
 	}
 }
 
-
-@media (max-width: 768px) {
-	.the-game__img {
-		max-width: 220px;
-	}
-}
 
 .the-game__prop-name {
 	font-weight: 500;
