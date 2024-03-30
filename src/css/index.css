@@ -29,10 +29,6 @@ body {
 }
 
 .card__img-wrapper {
-	max-height: 240px;
-}
-
-.card__img-wrapper {
 	pointer-events: none;
 }
 
@@ -40,8 +36,15 @@ body {
 	pointer-events: all;
 }
 
+.card--game .card-body__title {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
 
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 991.9px) {
 	.card--game {
 		display: grid !important;
 		grid-template-columns: 180px 1fr;
@@ -68,6 +71,10 @@ body {
 	.card--game > * > .card-img {
 		border-radius: 0px;
 	}
+
+	.the-game__img {
+		max-width: 220px;
+	}
 }
 
 @media screen and (max-width: 430px) {
@@ -92,12 +99,6 @@ body {
 	}
 }
 
-
-@media (max-width: 768px) {
-	.the-game__img {
-		max-width: 220px;
-	}
-}
 
 .the-game__prop-name {
 	font-weight: 500;

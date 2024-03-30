@@ -52,6 +52,8 @@
 		</ul>
 	</div>
 
+	<div id="page-start-anchor"></div>
+
 	<header id="header" class="header">
 		<nav class="navbar py-2 bg-body-tertiary" aria-label="Навигация по сайту">
 			<div class="container d-flex flex-wrap align-items-center">
@@ -205,6 +207,7 @@
 							</button>
 
 							<label
+								id="currency-selector-label"
 								class="fz-4 me-2 text-light"
 								for="currency-select"
 								title="Выбрать валюту"
@@ -244,6 +247,7 @@
 						type="search"
 						placeholder="Название игры"
 						aria-labelledby="search-button"
+						name="title"
 					>
 					<button
 						class="w-100 mt-3 btn btn-lg btn-outline-primary"
@@ -339,6 +343,7 @@
 						class="form-select"
 						style="max-width: 100px;"
 						aria-labelledby="items-per-page-text"
+						name="items-per-page-text"
 					>
 						<option value="25">25</option>
 						<option value="50">50</option>
@@ -346,12 +351,12 @@
 				</div>
 			</div>
 
-			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 row-gap-4">
+			<div class="row row-cols-1 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 row-gap-4">
 				<div class="col">
 					<article class="card card--game h-100">
 						<div class="card__img-wrapper ratio ratio-1x1">
 							<img
-								class="bg-body-secondary object-fit-cover card-img"
+								class="bg-body-secondary object-fit-contain card-img"
 								loading="lazy"
 								src="http://31.41.44.86/images/games/3351/photo1.jpg"
 								alt="изображение игры"
@@ -422,7 +427,7 @@
 					<article class="card card--game h-100">
 						<div class="card__img-wrapper ratio ratio-1x1">
 							<img
-								class="bg-body-secondary object-fit-cover card-img"
+								class="bg-body-secondary object-fit-contain card-img"
 								loading="lazy"
 								src="http://31.41.44.86/images/games/3351/photo1.jpg"
 								alt="изображение игры"
@@ -493,7 +498,7 @@
 					<article class="card card--game h-100">
 						<div class="card__img-wrapper ratio ratio-1x1">
 							<img
-								class="bg-body-secondary object-fit-cover card-img"
+								class="bg-body-secondary object-fit-contain card-img"
 								loading="lazy"
 								src="http://31.41.44.86/images/games/58/photo1.jpg"
 								alt="изображение игры"
@@ -564,7 +569,7 @@
 					<article class="card card--game h-100">
 						<div class="card__img-wrapper ratio ratio-1x1">
 							<img
-								class="bg-body-secondary object-fit-cover card-img"
+								class="bg-body-secondary object-fit-contain card-img"
 								loading="lazy"
 								src="http://31.41.44.86/images/games/3351/photo1.jpg"
 								alt="изображение игры"
@@ -635,7 +640,7 @@
 					<article class="card card--game h-100">
 						<div class="card__img-wrapper ratio ratio-1x1">
 							<img
-								class="bg-body-secondary object-fit-cover card-img"
+								class="bg-body-secondary object-fit-contain card-img"
 								loading="lazy"
 								src="http://31.41.44.86/images/games/3351/photo1.jpg"
 								alt="изображение игры"
@@ -706,7 +711,7 @@
 					<article class="card card--game h-100">
 						<div class="card__img-wrapper ratio ratio-1x1">
 							<img
-								class="bg-body-secondary object-fit-cover card-img"
+								class="bg-body-secondary object-fit-contain card-img"
 								loading="lazy"
 								src="http://31.41.44.86/images/games/3351/photo1.jpg"
 								alt="изображение игры"
@@ -777,7 +782,7 @@
 					<article class="card card--game h-100">
 						<div class="card__img-wrapper ratio ratio-1x1">
 							<img
-								class="bg-body-secondary object-fit-cover card-img"
+								class="bg-body-secondary object-fit-contain card-img"
 								loading="lazy"
 								src="http://31.41.44.86/images/games/3351/photo1.jpg"
 								alt="изображение игры"
@@ -899,7 +904,7 @@
 						<a
 							class="link-body-emphasis icon-link icon-link-hover text-reset"
 							style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);"
-							href="#header"
+							href="#page-start-anchor"
 						>
 							<span class="bi bi-arrow-up-short" aria-hidden="true"></span>
 							вверх
