@@ -9,10 +9,10 @@ const choiceSelect = new Choices(el, {
 	classNames: {
 		containerOuter: 'choices choices--no-right-padding z-2 choices--bs-sm choices--bs-theme--default choices--truncate',
 	},
+	searchChoices: false,
 	removeItemButton: true,
 	searchResultLimit: 999999, // searchResultLimit: -1 не позволит искать нужные элементы, после их загрузки
 })
-
 
 const searchEl = choiceSelect.input.element
 const handleSearchDebounced = debounce(handleSearch, 300)
