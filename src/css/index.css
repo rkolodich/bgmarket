@@ -431,14 +431,18 @@ body {
 	align-items: flex-end;
 }
 
+.game-price-card__condition {
+	align-items: flex-end;
+}
+
 .game-price-card__keywords {
 	grid-area: links;
-	font-weight: bold;
 }
 
 .game-price-card__keywords-list {
 	display: flex;
 	flex-wrap: wrap;
+	font-weight: bold;
 }
 
 .game-price-card__keywords-list > li:not(:last-child):after {
@@ -518,7 +522,7 @@ body {
 	}
 
 	.game-price-card__condition {
-		text-align: center;
+		justify-content: center;
 	}
 }
 
