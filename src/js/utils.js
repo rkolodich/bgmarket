@@ -147,7 +147,15 @@ export function formDataToSearchParams(formOrSelector) {
 		return;
 	}
 	const form = new FormData(el)
-	return new URLSearchParams(form).toString()
+	const searchParams = new URLSearchParams(form)
+	const keysForDelete = [];
+	searchParams.forEach((value, key) => {
+		if (value === '') {
+			keysForDelete.push(key)
+		}
+	})
+	keysForDelete.forEach(key => searchParams.delete(key))
+	return searchParams.toString()
 }
 
 /**
