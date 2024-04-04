@@ -139,15 +139,26 @@ export function removeClass(elsOrSelector, _class, target = document) {
 
 /**
  * @param {string|HTMLElement} formOrSelector
+ * @param {object} options
+ * @param {string|string[]} options.ignore
  * @returns {string|undefined}
  */
-export function formDataToSearchParams(formOrSelector) {
+export function formDataToSearchParams(formOrSelector, options = {}) {
 	const el = getEl(formOrSelector)
 	if (!el) {
 		return;
 	}
+	const ignore = options.ignore ? castToArray(options.ignore) : []
 	const form = new FormData(el)
-	return new URLSearchParams(form).toString()
+	const searchParams = new URLSearchParams(form)
+	const keysForDelete = [];
+	searchParams.forEach((value, key) => {
+		if (value === '' || ignore.includes(key)) {
+			keysForDelete.push(key)
+		}
+	})
+	keysForDelete.forEach(key => searchParams.delete(key))
+	return searchParams.toString()
 }
 
 /**
