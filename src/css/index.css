@@ -590,6 +590,11 @@ body {
 	color: var(--bs-secondary-text-emphasis) !important;
 }
 
+[data-bs-theme=dark] .choices[data-type*=select-one] .choices__button {
+	/* При использовании темы бутстрап */
+	filter: invert();
+}
+
 /* --- Bootstrap utils (existed if specific flag is true) --- */
 
 .mt-n1 {
