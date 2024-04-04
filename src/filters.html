@@ -331,65 +331,69 @@
 			<div class="card mb-5 p-2 shadow-sm">
 				<form id="form-filters" class="row g-2 g-lg-3">
 					<div class="col-12 col-md-6 col-lg">
-						<label for="game-title-select" class="form-label">
+						<label for="game-name-select" class="form-label">
 							Название игры
 						</label>
 						<input
-							id="game-title-select"
+							id="game-name-select"
 							class="form-control form-control-sm"
 							type="text"
-							name="title"
+							name="name"
 						>
 					</div>
 					<div class="col-12 col-md-6 col-lg">
-						<label for="town" class="form-label">
+						<label for="city-select" class="form-label">
 							Город
 						</label>
 						<select
-							id="town"
+							id="city-select"
 							class="form-select form-select-sm"
-							name="town"
+							name="location"
 						>
+							<option value="city_7040">
+								Абастумани
+							</option>
 						</select>
 					</div>
 					<div class="col-12 col-md-6 col-lg-2">
-						<label for="formGroupExampleInput" class="form-label">
+						<label for="condition-select" class="form-label">
 							Состояние
 						</label>
 						<select
 							class="form-select form-select-sm"
 							aria-label="Default select example"
-							name="state"
+							name="condition"
 						>
+							<option selected>Неважно</option>
 							<option value="new">Новая</option>
 							<option value="used">Б/У</option>
 						</select>
 					</div>
 					<div class="col-12 col-md-4 col-lg-3">
-						<label for="from" class="form-label">
+						<label for="maxPrice" class="form-label">
 							Цена
 						</label>
 						<div class="row gx-1">
 							<div class="col">
 								<input
-									id="from"
+									id="min_price"
 									class="form-control form-control-sm"
 									type="text"
 									pattern="[0-9]*"
 									inputmode="numeric"
 									placeholder="от"
-									name="priceFrom"
+									name="min_price"
 								>
 							</div>
-								<div class="col">
-									<input
-									id="from"
+							<div class="col">
+								<input
+									id="max_price"
 									class="form-control form-control-sm"
 									type="text"
 									pattern="[0-9]*"
 									inputmode="numeric"
 									placeholder="до"
-									name="priceTo"
+									name="max_price"
 								>
 							</div>
 							<div class="col">
@@ -408,11 +412,15 @@
 						<button
 							id="search-with-filters"
 							class="btn btn-primary btn-sm w-100"
+							type="submit"
 						>
 							<span class="bi bi-search" aria-hidden="true"></span>
 							Найти
 						</button>
 					</div>
+					<input id="country-input" type="hidden" name="country">
+					<input id="region-input" type="hidden" name="region">
+					<input id="city-input" type="hidden" name="city">
 				</form>
 			</div>
 

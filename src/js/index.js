@@ -62,7 +62,7 @@ function initSearch() {
 	if (btnEl) {
 		btnEl.addEventListener('click', (e) => {
 			e.preventDefault()
-			const searchParams = formDataToSearchParams('#form-filters')
+			const searchParams = formDataToSearchParams('#form-filters', { ignore: 'location' })
 			const { origin, pathname, } = getUrl()
 			const url = origin + pathname + '?' + searchParams;
 			history.pushState({}, '', url);
