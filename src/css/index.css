@@ -536,6 +536,10 @@ body {
 		align-items: center;
 	}
 
+	.game-price-card__container--wide-header {
+		grid-template-columns: 420px 1fr 100px auto;
+	}
+
 	.game-price-card__header {
 		--gap: 1.25rem;
 		gap: var(--gap);

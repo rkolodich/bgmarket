@@ -11,6 +11,7 @@ const choiceSelect = new Choices(el, {
 	searchChoices: false,
 	removeItemButton: true,
 	searchResultLimit: 999999, // searchResultLimit: -1 не позволит искать нужные элементы, после их загрузки
+	sorter
 })
 choiceSelect.setChoices([], 'value', 'label', true) // очищает поиск от выбранного <option> через HTML
 
@@ -69,6 +70,22 @@ function prepareFetchLocationResult(items = []) {
 	})
 
 	return res
+}
+
+
+const hasCity = i => !!i.city_name
+const hasRegion = i => !!i.region_name
+const hasCountry = i => !!i.country_name
+const both = (callback, a, b) => callback(a, b)
+function sorter(a, b) {
+	console.log(1)
+	if (both(hasCity, a, b) || both(hasRegion, a, b) || both(hasCountry, a, b)) {
+		return 0
+	}
+	else if (hasCity(a) || hasRegion(a) && !hasCountry(b)) {
+		return -1
+	}
+	return 1
 }
 
 function setTitleAttrForChosenItem(event) {
